@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - AI Habit Coach</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+  <link rel="stylesheet" href="assets/font-sizes.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        🎯 <span>Habit</span>Coach
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item active">📊 Dashboard</li>
+        <li class="sidebar-menu-item"><a href="my-habits.html" style="color: inherit; text-decoration: none;">➕ My Habits</a></li>
+        <li class="sidebar-menu-item">📈 Progress</li>
+      </ul>
+
+      <div class="sidebar-section-title">Your Stats</div>
+
+      <div class="stat-box">
+        <div class="stat-label">Daily Goals</div>
+        <div class="stat-value"><span id="dailyGoals">3</span>/5</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">Achievements</div>
+        <div class="stat-value" id="achievements">5</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">Total Habits</div>
+        <div class="stat-value" id="totalHabits">0</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-label">Habit Points</div>
+        <div class="stat-value" id="habitPoints">0</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <h1 class="page-title">🏠 Dashboard</h1>
+        <div class="search-bar">
+          <input type="text" placeholder="Search habits..." />
+        </div>
+        <div class="user-menu">
+          <div class="user-avatar" id="userAvatar">A</div>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <!-- Achievement Badges -->
+      <div>
+        <h3 style="margin-bottom: 15px; font-weight: 700; color: #1a1f3a;">🏆 Achievements</h3>
+        <div class="achievement-badges" id="achievementBadges">
+          <div class="badge badge-fire" title="Streak Active">🔥</div>
+          <div class="badge badge-gold" title="100+ Points">⭐</div>
+          <div class="badge badge-silver" title="5 Habits">📌</div>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon">🔥</div>
+          <div class="stat-card-content">
+            <h3>Current Streak</h3>
+            <p id="currentStreak">0</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-card-alt">
+          <div class="stat-card-icon">⭐</div>
+          <div class="stat-card-content">
+            <h3>Total Points</h3>
+            <p id="totalPoints">0</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-card-alt2">
+          <div class="stat-card-icon">🎯</div>
+          <div class="stat-card-content">
+            <h3>Longest Streak</h3>
+            <p id="longestStreak">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Chart -->
+      <div class="chart-section">
+        <div class="chart-header">
+          <h3>📈 Progress Chart</h3>
+          <div class="chart-filters">
+            <button class="filter-btn active" onclick="filterChart('7days')">Last 7 Days</button>
+            <button class="filter-btn" onclick="filterChart('30days')">Last 30 Days</button>
+          </div>
+        </div>
+        <div class="chart-container" id="chartContainer">
+          <!-- Chart bars will be rendered here -->
+        </div>
+      </div>
+
+      <!-- Habits Section -->
+      <div>
+        <h3 style="margin-bottom: 20px; font-weight: 700; color: #1a1f3a;">📋 Active Habits</h3>
+        <div class="habits-grid" id="habitsGrid">
+          <!-- Habit cards will be loaded here -->
+        </div>
+
+        <!-- Add Habit Button -->
+        <div onclick="window.location.href='my-habits.html'" class="add-habit-btn">
+          ➕ Create New Habit
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar - AI Chat -->
+    <aside class="chat-panel">
+      <div class="chat-header">
+        <div class="chat-header-icon">🤖</div>
+        <div>AI Coach</div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message">
+          <div class="message-bubble ai-message">
+            Hey there! 👋 I'm your AI Habit Coach. Ask me anything about your habits or how to stay consistent!
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask AI Coach..."
+          max-length="200"
+        />
+        <button onclick="sendChatMessage()">Send</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>
